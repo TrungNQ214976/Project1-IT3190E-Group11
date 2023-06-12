@@ -1,0 +1,8 @@
+package dataio;
+
+public class Test {
+	public static void main(String[] args) {
+		DataProcess dataIO = new DataProcess("../data/iptables.log");
+		dataIO.readLogFile();
+	}
+}

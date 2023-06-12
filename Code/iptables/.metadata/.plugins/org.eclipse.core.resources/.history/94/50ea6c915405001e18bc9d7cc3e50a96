@@ -1,0 +1,13 @@
+package dataio;
+
+import java.util.ArrayList;
+
+public class Test {
+	public static void main(String[] args) {
+		DataProcess dataProcess = new DataProcess("../data/iptables.log");
+		dataProcess.readLogFile();
+		dataProcess.toArrayList();
+		ArrayList<String> lines = dataProcess.getLines();
+		dataProcess.writeToFile();
+	}
+}
