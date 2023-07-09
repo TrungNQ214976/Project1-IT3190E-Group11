@@ -1,7 +1,6 @@
 package com.it.loganalyze.gui.application;
 
 import java.io.IOException;
-import java.security.cert.CollectionCertStoreParameters;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,10 +12,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.BorderPane;
 
 public class ShowLogTable {
 	private LogData logData;
@@ -50,6 +47,7 @@ public class ShowLogTable {
 			for (Log line: logData.getData()) {        	
 				tableView.getItems().add(line);
 			}
+			tableView.setColumnResizePolicy((TableView.UNCONSTRAINED_RESIZE_POLICY));
 			
 		}
 		return tableView;

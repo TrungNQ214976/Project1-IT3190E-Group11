@@ -16,4 +16,7 @@
     -fx-cursor: hand;
 }
 
+.titled-pane .title {
+    -fx-translate-y: 100%;
+}
 

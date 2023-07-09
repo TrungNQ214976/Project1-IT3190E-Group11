@@ -6,18 +6,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 
-public class ApacheAccessLog extends Log implements GetField {
+public class ApacheAccessLog extends Log {
 	public LinkedHashMap<String, String> logLine = new LinkedHashMap<>();
 	private final ArrayList<String> keys = new ArrayList<>(Arrays.asList(
 			"Ip_address", "User_identity", "User_name", "Timestamp", "HttpMethod",
-			"Url", "Version", "Status_code", "Bytesize", "UrlSource", "User_agent"
-			));
-	
-	
+			"Url", "Version", "Status_code", "Bytesize", "UrlSource", "User_agent"));
+
 	public ApacheAccessLog(LinkedHashMap<String, String> line) {
 		logLine = line;
 	}
-	
+
 	@Override
 	public String getField(String fieldName) {
 		String value = logLine.get(fieldName);
@@ -31,21 +29,22 @@ public class ApacheAccessLog extends Log implements GetField {
 
 	@Override
 	public LocalDateTime getDate() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM dd HH:mm:ss zzz yyyy");
-	    LocalDateTime dateTime = LocalDateTime.parse(getField("Timestamp").substring(4), formatter);
-		// TODO Auto-generated method stub
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss zzz yyyy");
+		LocalDateTime dateTime = LocalDateTime.parse(getField("Timestamp"), formatter);
 		return dateTime;
 	}
 
 	@Override
 	public String getSrcIp() {
-		// TODO Auto-generated method stub
-		return getField("Ip_address");
+		String res = logLine.get("Ip_address");
+		return res;
 	}
 
 	@Override
 	public ArrayList<String> getMainField() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<String> mainKeys = new ArrayList<>(Arrays.asList(
+				"Ip_address", "Timestamp", "HttpMethod",
+				"Url", "Status_code", "Bytesize", "UrlSource"));
+		return mainKeys;
 	}
 }

@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author trung
- *
- */
-module test {
-}

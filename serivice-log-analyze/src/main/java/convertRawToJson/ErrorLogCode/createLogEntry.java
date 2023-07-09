@@ -1,4 +1,5 @@
 package convertRawToJson.ErrorLogCode;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,14 +18,14 @@ public class createLogEntry {
 		logObject.addProperty("Port", logEntry.getPort());
 		logObject.addProperty("Message", logEntry.getMessage());
 		logObject.addProperty("Referer", logEntry.getReferer());
-		
+
 		return logObject;
-		
+
 	}
-	
+
 	static LogEntry extractLogEntry(String line) {
 		LogParser logParser = new LogParser(line);
-		
+
 		String timestampStr = logParser.getTimestamp();
 		String configure = logParser.getConfigure();
 		String emerge_level = logParser.getEmergeLevel();
@@ -34,22 +35,21 @@ public class createLogEntry {
 		String port = logParser.getPort();
 		String message = logParser.getMessage();
 		String referer = logParser.getReferer();
-		
+
 		SimpleDateFormat dateFormat;
-        Date timestamp;
-        try{
-        		dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss.SSSSSS yyyy");
-                timestamp = dateFormat.parse(timestampStr);
-        }catch(ParseException e){
-        	try {
-        		dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
-                timestamp = dateFormat.parse(timestampStr);
-        	}catch (ParseException e1) {
-        		timestamp = null;
-				// TODO: handle exception
+		Date timestamp;
+		try {
+			dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss.SSSSSS yyyy");
+			timestamp = dateFormat.parse(timestampStr);
+		} catch (ParseException e) {
+			try {
+				dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
+				timestamp = dateFormat.parse(timestampStr);
+			} catch (ParseException e1) {
+				timestamp = null;
 			}
-        }
-		
-		return new LogEntry(timestamp, configure, emerge_level, pID, tID, ip_address,port ,message,referer);
+		}
+
+		return new LogEntry(timestamp, configure, emerge_level, pID, tID, ip_address, port, message, referer);
 	}
 }

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
@@ -70,8 +71,10 @@
             <StackPane fx:id="infoPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
                   <Pane prefHeight="200.0" prefWidth="200.0" />
-                  <Pane prefHeight="200.0" prefWidth="200.0" visible="false" />
-                  <TitledPane animated="false" text="untitled" visible="false" />
+                  <TitledPane animated="false" maxHeight="600.0" text="Log Detail" visible="false" StackPane.alignment="BOTTOM_CENTER">
+                     <content>
+                        <ScrollPane fx:id="detailInfoPane" prefHeight="200.0" prefWidth="200.0" />
+                     </content></TitledPane>
                </children>
             </StackPane>
          </center>

@@ -5,20 +5,16 @@ import javafx.collections.ObservableList;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.layout.HBox;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import javafx.application.Platform;
 import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.layout.Pane;
-import org.json.JSONObject;
 
 import com.it.loganalyze.log.Log;
 import com.it.loganalyze.log.LogData;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -143,21 +139,26 @@ public class ShowLogCharts {
                     }
 
 
-                    // Parse the value as a date
+                 // Parse the value as a date
                     Date date = null;
                     if (value.contains("/")) {
-                        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
-                        date = dateFormat1.parse(value);
+                        try {
+                            SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
+                            date = dateFormat1.parse(value);
+                        } catch (ParseException e) {
+                            SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z");
+                            date = dateFormat2.parse(value);
+                        }
                     } else if (value.contains("ICT")) {
-                        SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-                        dateFormat2.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
-                        date = dateFormat2.parse(value);
-                    } else if (value.contains(":")) {
-                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("MMM d HH:mm:ss");
+                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+                        dateFormat3.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
                         date = dateFormat3.parse(value);
-                    } else {
-                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                    } else if (value.contains(":")) {
+                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMM d HH:mm:ss");
                         date = dateFormat4.parse(value);
+                    } else {
+                        SimpleDateFormat dateFormat5 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                        date = dateFormat5.parse(value);
                     }
                     SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -234,18 +235,23 @@ public class ShowLogCharts {
                     // Parse the value as a date
                     Date date = null;
                     if (value.contains("/")) {
-                        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
-                        date = dateFormat1.parse(value);
+                        try {
+                            SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
+                            date = dateFormat1.parse(value);
+                        } catch (ParseException e) {
+                            SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z");
+                            date = dateFormat2.parse(value);
+                        }
                     } else if (value.contains("ICT")) {
-                        SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-                        dateFormat2.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
-                        date = dateFormat2.parse(value);
-                    } else if (value.contains(":")) {
-                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("MMM d HH:mm:ss");
+                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+                        dateFormat3.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
                         date = dateFormat3.parse(value);
-                    } else {
-                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                    } else if (value.contains(":")) {
+                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMM d HH:mm:ss");
                         date = dateFormat4.parse(value);
+                    } else {
+                        SimpleDateFormat dateFormat5 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                        date = dateFormat5.parse(value);
                     }
                     SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -306,18 +312,23 @@ public class ShowLogCharts {
                     // Parse the value as a date
                     Date date = null;
                     if (value.contains("/")) {
-                        SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
-                        date = dateFormat1.parse(value);
+                        try {
+                            SimpleDateFormat dateFormat1 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss.SSSSSS Z");
+                            date = dateFormat1.parse(value);
+                        } catch (ParseException e) {
+                            SimpleDateFormat dateFormat2 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss Z");
+                            date = dateFormat2.parse(value);
+                        }
                     } else if (value.contains("ICT")) {
-                        SimpleDateFormat dateFormat2 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-                        dateFormat2.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
-                        date = dateFormat2.parse(value);
-                    } else if (value.contains(":")) {
-                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("MMM d HH:mm:ss");
+                        SimpleDateFormat dateFormat3 = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+                        dateFormat3.setTimeZone(TimeZone.getTimeZone("Asia/Bangkok"));
                         date = dateFormat3.parse(value);
-                    } else {
-                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                    } else if (value.contains(":")) {
+                        SimpleDateFormat dateFormat4 = new SimpleDateFormat("MMM d HH:mm:ss");
                         date = dateFormat4.parse(value);
+                    } else {
+                        SimpleDateFormat dateFormat5 = new SimpleDateFormat("dd/MMM/yyyy:HH:mm:ss");
+                        date = dateFormat5.parse(value);
                     }
                     SimpleDateFormat dayFormat = new SimpleDateFormat("yyyy-MM-dd");
 

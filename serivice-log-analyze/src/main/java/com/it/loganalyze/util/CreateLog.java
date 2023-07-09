@@ -146,13 +146,4 @@ public class CreateLog {
 	    logData = new LogData(logList);
 	    return logData;
 	}
-
-
-
-	public static void main(String[] args) {
-		LogData data = CreateLog.createIptablesLog("src/main/resources/com/it/loganalyze/log/iptables.log");
-		System.out.println(data.toString());
-//		LogData data2 = CreateLog.createApacheAccessLog("./src/util/access.json");
-//		System.out.println(data2);
-	}
 }

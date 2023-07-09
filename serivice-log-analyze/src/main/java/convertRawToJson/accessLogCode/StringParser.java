@@ -7,13 +7,7 @@ public class StringParser {
 	private static String status_bytesizeString = "(\\d+)\s(\\d+)";
 	private static String urlSourceString = "\"([^ ]+)\"";
 	private static String user_agentString = "\"([^\"]*)\"";
-//	private static String cookieString = "\"([^ ]*)\"";
-//	private static String proxyString = "\"([^ ]*)\"";
-//	private static String servernameString = "\"([^ ]*)\"";
-//	private static String remotenameString = "\"([^ ]*)\"";
-//	private static String respone_timeString = "\"(\\d+\\.\\d+)\"";
-//	private static String connection_statusString = "\"([^ ]*)\"";
-//	private static String respone_headerString = "\"([^\"]*)\"";	
+	
 	
 	public static String getIpAddress(){
         return ip_addressString;
@@ -39,31 +33,4 @@ public class StringParser {
         return user_agentString;
 	}
 
-//	public static String getCookie(){
-//        return cookieString;
-//	}
-//
-//	public static String getProxy(){
-//        return proxyString;
-//	}
-//
-//	public static String getServerName(){
-//        return servernameString;
-//	}
-//
-//	public static String getRemoteName(){
-//        return remotenameString;
-//	}
-//
-//	public static String getResponeTime(){
-//        return respone_timeString;
-//	}
-//
-//	public static String getConnectionStatus(){
-//        return connection_statusString;
-//	}
-//
-//	public static String getResponeHeader(){
-//        return respone_headerString;
-//	}
 }

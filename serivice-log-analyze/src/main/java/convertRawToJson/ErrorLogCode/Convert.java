@@ -10,38 +10,33 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 
 public class Convert {
-	private static final String inputfile = "src/main/resources/com/it/loganalyze/log/";
+	public static void Start(String file) {
 
-	public static void Start(String filename) {
-		// TODO Auto-generated method stub
-		
-		String file = inputfile + filename; 
-		
 		JsonObject jsonObject = new JsonObject();
-		
-		try (BufferedReader reader = new BufferedReader(new FileReader(file))){
+
+		try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
 			String line;
 			int lineNumber = 1;
-			
-			while((line = reader.readLine()) != null) {
-				
+
+			while ((line = reader.readLine()) != null) {
+
 				LogEntry logEntry = createLogEntry.extractLogEntry(line);
 				jsonObject.add("line_" + lineNumber, createLogEntry.create(logEntry));
-				
-				lineNumber ++;
+
+				lineNumber++;
 			}
-		}catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Something has wrong");
 		}
-		
+
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String jsonString = gson.toJson(jsonObject);
-		
+
 		String outputfile = "src/main/resources/com/it/loganalyze/log/error.json";
-		try(FileWriter fileWriter = new FileWriter(outputfile)){
+		try (FileWriter fileWriter = new FileWriter(outputfile)) {
 			fileWriter.write(jsonString);
-		}catch(IOException e) {
-			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Something has wrong");
 		}
 	}
 

@@ -1,11 +1,15 @@
 package com.it.loganalyze.test;
 
-import java.time.LocalDate;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import com.it.loganalyze.util.Util;
 
 
 public class Test {
 	public static void main(String[] args) {
-		Object object = LocalDate.of(2023, 7, 6);
-	System.err.println(object.getClass());
+		Map <String, String> map = new LinkedHashMap<>();
+		map.put("abc", "def");
+		System.out.println(Util.prettyPrintMap(map));
 	}
 }
