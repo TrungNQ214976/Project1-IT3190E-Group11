@@ -19,7 +19,7 @@ A log analyser program with support for Apache logs, firewall iptables logs and 
 ---------------
 ### GUI App Design
 
-To be updated
+[Balsamiq](https://balsamiq.cloud/six90ga/po6qsj0/r1EA6)
 
 ---------------
 ### Directory layout
