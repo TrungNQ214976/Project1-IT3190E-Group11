@@ -1,6 +1,0 @@
-[Tue Jun 06 03:39:21.249563 2023] [mpm_event:notice] [pid 923:tid 139828146673536] AH00489: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
-[Tue Jun 06 03:39:21.249607 2023] [core:notice] [pid 923:tid 139828146673536] AH00094: Command line: '/usr/sbin/apache2'[Tue Jun 06 04:59:25.920390 2023] [mpm_event:notice] [pid 923:tid 139828146673536] AH00493: SIGUSR1 received.
-[Tue Jun 06 04:59:26.166738 2023] [mpm_event:notice] [pid 923:tid 139828146673536] AH00489: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
-[Tue Jun 06 04:59:26.166785 2023] [core:notice] [pid 923:tid 139828146673536] AH00094: Command line: '/usr/sbin/apache2'[Thu Jun 08 02:53:00.264060 2023] [mpm_event:notice] [pid 923:tid 139828146673536] AH00493: SIGUSR1 received.
-[Thu Jun 08 02:53:00.714616 2023] [mpm_event:notice] [pid 923:tid 139828146673536] AH00489: Apache/2.4.52 (Ubuntu) configured -- resuming normal operations
-[Thu Jun 08 02:53:00.714719 2023] [core:notice] [pid 923:tid 139828146673536] AH00094: Command line: '/usr/sbin/apache2'
